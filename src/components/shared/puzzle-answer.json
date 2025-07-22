@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_puzzle_answers",
+  "info": {
+    "displayName": "Puzzle_Answer",
+    "icon": "lock"
+  },
+  "options": {},
+  "attributes": {
+    "Puzzle_Titel": {
+      "type": "string"
+    },
+    "Puzzle_Beschreibungstext": {
+      "type": "text"
+    },
+    "Hinweistext": {
+      "type": "string",
+      "default": "Tippe die Rätsellösung in das Eingabefeld und bestätige die Eingabe."
+    },
+    "Antwort": {
+      "type": "password"
+    },
+    "Puzzle_Hilfetext": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
