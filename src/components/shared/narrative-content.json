@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_narrative_contents",
+  "info": {
+    "displayName": "NarrativeContent",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "body": {
+      "type": "text"
+    },
+    "media": {
+      "type": "component",
+      "component": "shared.media-block",
+      "repeatable": false
+    },
+    "video": {
+      "type": "component",
+      "component": "shared.video-block",
+      "repeatable": false
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

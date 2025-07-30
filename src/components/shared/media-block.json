@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_media_blocks",
+  "info": {
+    "displayName": "MediaBlock",
+    "icon": "paintBrush"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "caption": {
+      "type": "string"
+    },
+    "credit": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

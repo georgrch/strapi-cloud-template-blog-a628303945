@@ -386,7 +386,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
   attributes: {
     blocks: Schema.Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
+      ['shared.quote', 'shared.rich-text', 'shared.slider']
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -434,6 +434,42 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNodeNode extends Struct.CollectionTypeSchema {
+  collectionName: 'nodes';
+  info: {
+    displayName: 'Node';
+    pluralName: 'nodes';
+    singularName: 'node';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      ['shared.narrative-content', 'shared.puzzle-answer']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    index: Schema.Attribute.Integer;
+    kind: Schema.Attribute.Enumeration<['narrative', 'puzzle']> &
+      Schema.Attribute.DefaultTo<'narrative'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::node.node'> &
+      Schema.Attribute.Private;
+    nextNode: Schema.Attribute.Relation<'oneToOne', 'api::node.node'>;
+    publishedAt: Schema.Attribute.DateTime;
+    storyline: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::storyline.storyline'
+    >;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiStorylineStoryline extends Struct.CollectionTypeSchema {
   collectionName: 'storylines';
   info: {
@@ -454,6 +490,7 @@ export interface ApiStorylineStoryline extends Struct.CollectionTypeSchema {
       'api::storyline.storyline'
     > &
       Schema.Attribute.Private;
+    nodes: Schema.Attribute.Relation<'oneToMany', 'api::node.node'>;
     publishedAt: Schema.Attribute.DateTime;
     puzzle_array: Schema.Attribute.Component<'shared.puzzle-answer', true>;
     Storyline_Beschreibungstext: Schema.Attribute.Text;
@@ -596,6 +633,114 @@ export interface PluginI18NLocale extends Struct.CollectionTypeSchema {
         },
         number
       >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface PluginMuxVideoUploaderMuxAsset
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'muxassets';
+  info: {
+    description: 'Represents a Mux Asset item, including upload and playback details';
+    displayName: 'Mux Asset';
+    pluralName: 'mux-assets';
+    singularName: 'mux-asset';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: true;
+    };
+    'content-type-builder': {
+      visible: true;
+    };
+  };
+  attributes: {
+    aspect_ratio: Schema.Attribute.String;
+    asset_data: Schema.Attribute.JSON;
+    asset_id: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    duration: Schema.Attribute.Decimal;
+    error_message: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    isReady: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'plugin::mux-video-uploader.mux-asset'
+    > &
+      Schema.Attribute.Private;
+    playback_id: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    signed: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Configurable &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+        minLength: 3;
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    upload_id: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+  };
+}
+
+export interface PluginMuxVideoUploaderMuxTextTrack
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'muxtexttracks';
+  info: {
+    description: 'Temporary storage for user-defined subtitles & captions sent to Mux during video uploads';
+    displayName: 'Mux Text Track';
+    pluralName: 'mux-text-tracks';
+    singularName: 'mux-text-track';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    closed_captions: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    file: Schema.Attribute.JSON & Schema.Attribute.Required;
+    language_code: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'plugin::mux-video-uploader.mux-text-track'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -975,10 +1120,13 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::global.global': ApiGlobalGlobal;
+      'api::node.node': ApiNodeNode;
       'api::storyline.storyline': ApiStorylineStoryline;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
+      'plugin::mux-video-uploader.mux-asset': PluginMuxVideoUploaderMuxAsset;
+      'plugin::mux-video-uploader.mux-text-track': PluginMuxVideoUploaderMuxTextTrack;
       'plugin::review-workflows.workflow': PluginReviewWorkflowsWorkflow;
       'plugin::review-workflows.workflow-stage': PluginReviewWorkflowsWorkflowStage;
       'plugin::upload.file': PluginUploadFile;

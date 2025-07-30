@@ -1,26 +1,38 @@
 {
   "collectionName": "components_shared_puzzle_answers",
   "info": {
-    "displayName": "Puzzle_Answer",
+    "displayName": "PuzzleContent",
     "icon": "lock"
   },
   "options": {},
   "attributes": {
-    "Puzzle_Titel": {
+    "subtitle": {
       "type": "string"
     },
-    "Puzzle_Beschreibungstext": {
+    "instructions": {
       "type": "text"
     },
-    "Hinweistext": {
-      "type": "string",
-      "default": "Tippe die Rätsellösung in das Eingabefeld und bestätige die Eingabe."
+    "answer": {
+      "type": "password",
+      "required": true
     },
-    "Antwort": {
-      "type": "password"
-    },
-    "Puzzle_Hilfetext": {
+    "solutionExplanation": {
       "type": "text"
+    },
+    "hints": {
+      "type": "component",
+      "component": "shared.hint",
+      "repeatable": true
+    },
+    "media": {
+      "type": "component",
+      "component": "shared.media-block",
+      "repeatable": false
+    },
+    "video": {
+      "type": "component",
+      "component": "shared.video-block",
+      "repeatable": false
     }
   },
   "config": {}

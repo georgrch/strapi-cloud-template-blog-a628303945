@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_video_blocks",
+  "info": {
+    "displayName": "VideoBlock",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "muxPlaybackId": {
+      "type": "string",
+      "required": true
+    },
+    "muxAssetId": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "startAt": {
+      "type": "integer"
+    },
+    "endAt": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

@@ -21,6 +21,12 @@
     },
     "Storyline_Beschreibungstext": {
       "type": "text"
+    },
+    "nodes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::node.node",
+      "mappedBy": "storyline"
     }
   }
 }

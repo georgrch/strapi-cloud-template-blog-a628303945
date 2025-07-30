@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_hints",
+  "info": {
+    "displayName": "Hint",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "penaltyScore": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}
