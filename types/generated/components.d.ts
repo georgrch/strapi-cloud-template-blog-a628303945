@@ -49,7 +49,7 @@ export interface SharedPuzzleAnswer extends Struct.ComponentSchema {
     icon: 'lock';
   };
   attributes: {
-    answer: Schema.Attribute.Password;
+    answer: Schema.Attribute.String;
     hints: Schema.Attribute.Component<'shared.hint', true>;
     instructions: Schema.Attribute.Text;
     media: Schema.Attribute.Component<'shared.media-block', false>;

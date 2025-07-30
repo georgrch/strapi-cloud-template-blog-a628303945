@@ -12,9 +12,6 @@
     "instructions": {
       "type": "text"
     },
-    "answer": {
-      "type": "password"
-    },
     "solutionExplanation": {
       "type": "text"
     },
@@ -32,6 +29,9 @@
       "type": "component",
       "component": "shared.video-block",
       "repeatable": false
+    },
+    "answer": {
+      "type": "string"
     }
   },
   "config": {}
