@@ -492,10 +492,21 @@ export interface ApiStorylineStoryline extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nodes: Schema.Attribute.Relation<'oneToMany', 'api::node.node'>;
+    playDuration: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'1 Stunde'>;
+    playerAmount: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'1-4 Spieler'>;
+    published: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     publishedAt: Schema.Attribute.DateTime;
     puzzle_array: Schema.Attribute.Component<'shared.puzzle-answer', true>;
+    schwierigkeitsgrad: Schema.Attribute.Enumeration<
+      ['einfach', 'mittel', 'schwer']
+    >;
     Storyline_Beschreibungstext: Schema.Attribute.Text;
     Storyline_Titel: Schema.Attribute.String;
+    storylineThumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

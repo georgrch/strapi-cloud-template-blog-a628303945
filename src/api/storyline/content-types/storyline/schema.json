@@ -32,6 +32,36 @@
       "type": "component",
       "component": "shared.video-block",
       "repeatable": false
+    },
+    "storylineThumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "published": {
+      "type": "boolean",
+      "default": true
+    },
+    "playDuration": {
+      "type": "string",
+      "default": "1 Stunde"
+    },
+    "playerAmount": {
+      "type": "string",
+      "default": "1-4 Spieler"
+    },
+    "schwierigkeitsgrad": {
+      "type": "enumeration",
+      "enum": [
+        "einfach",
+        "mittel",
+        "schwer"
+      ]
     }
   }
 }
