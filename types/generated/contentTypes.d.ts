@@ -502,6 +502,7 @@ export interface ApiStorylineStoryline extends Struct.CollectionTypeSchema {
     schwierigkeitsgrad: Schema.Attribute.Enumeration<
       ['einfach', 'mittel', 'schwer']
     >;
+    sortIndex: Schema.Attribute.Integer;
     Storyline_Beschreibungstext: Schema.Attribute.Text;
     Storyline_Titel: Schema.Attribute.String;
     storylineThumbnail: Schema.Attribute.Media<
