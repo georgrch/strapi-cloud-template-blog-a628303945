@@ -49,7 +49,7 @@ export interface SharedPuzzleAnswer extends Struct.ComponentSchema {
     icon: 'lock';
   };
   attributes: {
-    answer: Schema.Attribute.Password & Schema.Attribute.Required;
+    answer: Schema.Attribute.Password;
     hints: Schema.Attribute.Component<'shared.hint', true>;
     instructions: Schema.Attribute.Text;
     media: Schema.Attribute.Component<'shared.media-block', false>;
@@ -119,7 +119,7 @@ export interface SharedVideoBlock extends Struct.ComponentSchema {
   attributes: {
     endAt: Schema.Attribute.Integer;
     muxAssetId: Schema.Attribute.String;
-    muxPlaybackId: Schema.Attribute.String & Schema.Attribute.Required;
+    muxPlaybackId: Schema.Attribute.String;
     startAt: Schema.Attribute.Integer;
     thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };

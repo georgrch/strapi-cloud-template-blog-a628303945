@@ -13,8 +13,7 @@
       "type": "text"
     },
     "answer": {
-      "type": "password",
-      "required": true
+      "type": "password"
     },
     "solutionExplanation": {
       "type": "text"

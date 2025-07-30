@@ -27,6 +27,11 @@
       "relation": "oneToMany",
       "target": "api::node.node",
       "mappedBy": "storyline"
+    },
+    "introVideo": {
+      "type": "component",
+      "component": "shared.video-block",
+      "repeatable": false
     }
   }
 }
