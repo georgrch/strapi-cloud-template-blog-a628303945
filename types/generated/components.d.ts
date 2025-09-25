@@ -25,6 +25,7 @@ export interface SharedMediaBlock extends Struct.ComponentSchema {
     caption: Schema.Attribute.String;
     credit: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link_to_img: Schema.Attribute.String;
   };
 }
 
@@ -49,6 +50,7 @@ export interface SharedPuzzleAnswer extends Struct.ComponentSchema {
     icon: 'lock';
   };
   attributes: {
+    additional_text: Schema.Attribute.Text;
     answer: Schema.Attribute.String;
     hints: Schema.Attribute.Component<'shared.hint', true>;
     instructions: Schema.Attribute.Text;

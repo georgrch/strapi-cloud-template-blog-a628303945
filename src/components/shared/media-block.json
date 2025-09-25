@@ -21,6 +21,9 @@
     },
     "credit": {
       "type": "string"
+    },
+    "link_to_img": {
+      "type": "string"
     }
   },
   "config": {}

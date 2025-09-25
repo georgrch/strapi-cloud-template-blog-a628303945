@@ -32,6 +32,9 @@
     },
     "answer": {
       "type": "string"
+    },
+    "additional_text": {
+      "type": "text"
     }
   },
   "config": {}
