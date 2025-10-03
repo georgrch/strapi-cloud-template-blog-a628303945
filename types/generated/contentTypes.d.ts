@@ -601,6 +601,7 @@ export interface ApiStorylineStoryline extends Struct.CollectionTypeSchema {
     published: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     publishedAt: Schema.Attribute.DateTime;
     puzzle_array: Schema.Attribute.Component<'shared.puzzle-answer', true>;
+    released: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     schwierigkeitsgrad: Schema.Attribute.Enumeration<
       ['einfach', 'mittel', 'schwer']
     >;

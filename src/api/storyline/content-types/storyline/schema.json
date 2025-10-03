@@ -65,6 +65,10 @@
     },
     "sortIndex": {
       "type": "integer"
+    },
+    "released": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
