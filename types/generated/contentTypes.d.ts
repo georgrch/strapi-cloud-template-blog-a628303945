@@ -544,6 +544,9 @@ export interface ApiNodeNode extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    baseXP: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<50>;
     content: Schema.Attribute.DynamicZone<
       ['shared.narrative-content', 'shared.puzzle-answer']
     >;

@@ -42,6 +42,11 @@
         "shared.narrative-content",
         "shared.puzzle-answer"
       ]
+    },
+    "baseXP": {
+      "type": "integer",
+      "required": true,
+      "default": 50
     }
   }
 }
