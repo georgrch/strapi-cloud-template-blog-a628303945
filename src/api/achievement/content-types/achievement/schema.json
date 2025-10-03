@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "achievements",
+  "info": {
+    "singularName": "achievement",
+    "pluralName": "achievements",
+    "displayName": "Achievement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "key": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "description": {
+      "type": "text"
+    },
+    "xpBonus": {
+      "type": "integer"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "story",
+        "mastery",
+        "speed",
+        "exploration",
+        "consistency"
+      ]
+    },
+    "badge": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "sortIndex": {
+      "type": "integer"
+    },
+    "rule": {
+      "type": "json"
+    },
+    "isSecret": {
+      "type": "boolean"
+    },
+    "hint": {
+      "type": "string"
+    },
+    "rarity": {
+      "type": "enumeration",
+      "enum": [
+        "bronze",
+        "silver",
+        "gold",
+        "platinum"
+      ]
+    }
+  }
+}
